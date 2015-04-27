@@ -6,12 +6,15 @@ console.log('Indexing text');
 var dataDir = 'data/';
 var textDir = dataDir + 'text/';
 var indexFile = dataDir + 'index.json';
-var index = {};
+var index = {
+	__seed: []
+};
 var fileCount;
 
 var processFile = function(file) {
 	fs.readFile(textDir + file, function(err, data) {
 		var words = String(data).split(/\s+/);
+		index.__seed.push([words[0], words[1]]);
 		words.forEach(function(word, i) {
 			if (i <= words.length - 3) {
 				if (!index[word]) {

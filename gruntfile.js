@@ -139,11 +139,18 @@ module.exports = function(grunt) {
 			unit: {
 				configFile: 'karma.conf.js'
 			}
+		},
+		run: {
+			index: {
+				args: ['bin/indexText.js']
+			}
 		}
 	});
 
 	// Load NPM tasks
 	require('load-grunt-tasks')(grunt);
+	
+	grunt.loadNpmTasks('grunt-run');
 
 	// Making grunt default to force in order not to break the project.
 	grunt.option('force', true);
@@ -170,8 +177,12 @@ module.exports = function(grunt) {
 	grunt.registerTask('lint', ['jshint', 'csslint']);
 
 	// Build task(s).
-	grunt.registerTask('build', ['lint', 'loadConfig', 'ngAnnotate', 'uglify', 'cssmin']);
+	grunt.registerTask('build', ['lint', 'index', 'loadConfig', 'ngAnnotate', 'uglify', 'cssmin']);
 
 	// Test task.
 	grunt.registerTask('test', ['env:test', 'mochaTest', 'karma:unit']);
+
+	// Index source text
+	grunt.registerTask('index', ['run:index']);
+
 };

@@ -6,7 +6,18 @@
  			</div>
 		</div>
 	</div>
+	
+	<label>
+		Words per paragraph:
+		<input type="text" ng-model="wordCount" />
+	</label>
+	<label>
+		Number of paragraphs:
+		<input type="text" ng-model="paraCount" />
+	</label>
+
 	<button type="button" ng-click="generate()">Generate</button>
+
 	<div id="hpltarget">
 		<p ng-repeat="para in hplipsum">
 			{{para}}

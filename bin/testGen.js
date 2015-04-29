@@ -4,13 +4,21 @@ var Server = require('mongodb').Server;
 var mongoPort = 27017;
 
 var words = process.argv[2] || 250;
-var paras = process.argv[3] || 1;
+var paras = process.argv[3] || 3;
 var index;
 
 var db = new Db('hplipsum', new Server('localhost', mongoPort));
 var textArr = [];
 var pindex = 0;
-var windex = 0;
+var windex;
+var foundPeriod;
+
+var dumpText = function() {
+	textArr.forEach(function(arr) {
+		console.log(arr.join(' '));
+		console.log('');
+	});
+};
 
 var getNextWord = function(arr) {
 	index.find({
@@ -28,14 +36,26 @@ var getNextWord = function(arr) {
 
 				windex++;
 
-				if (windex < words) {
+				if (windex >= words) {
+					if (w3.match(/\.$/)) {
+						foundPeriod = true;
+					}
+				}
+
+				if (windex < words || !foundPeriod) {
 					arr.push(w3);
 					arr.shift();
 					getNextWord(arr);
 				}
 				else {
-					db.close();
-					console.log(textArr[pindex].join(' '));
+					pindex++;
+					if (pindex < paras) {
+						newParagraph();
+					}
+					else {
+						db.close();
+						dumpText();
+					}
 				}
 			});
 
@@ -43,6 +63,9 @@ var getNextWord = function(arr) {
 };
 
 var newParagraph = function() {
+	windex = 0;
+	foundPeriod = false;
+
 	/* Choose a random paragraph seed */
 	index.findOne({
 		_id: '_seeds'

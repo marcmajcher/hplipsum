@@ -28,10 +28,18 @@ var insertWord = function(words, i) {
 		});
 	}
 	else {
-		console.log(' done with '+fileCount);
+		console.log(' done with ' + fileCount);
 		fileCount--;
 
 		if (fileCount === 0) {
+			index.createIndex({
+				w1: 1,
+				w2: 1
+			}, function(err, ok) {
+				if (err) {
+					throw err;
+				}
+			});
 			db.close();
 			console.log('insert count: ' + insertCount);
 			console.log('Text files successfully indexed.');

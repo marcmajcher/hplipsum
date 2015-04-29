@@ -5,12 +5,12 @@ var mongoPort = 27017;
 var db = new Db('hplipsum', new Server('localhost', mongoPort));
 var index;
 
-var words = /* process.argv[2] ||*/ 250;
-var paras = /*process.argv[3] ||*/ 1;
+var words = 250;
+var paras = 1;
 var index;
 
-var textArr = [];
-var pindex = 0;
+var textArr;
+var pindex;
 var windex;
 var foundPeriod;
 
@@ -59,7 +59,8 @@ var getNextWord = function(arr, res) {
 					}
 					else {
 						db.close();
-						res.send(textArr[0].join(' '));
+						// res.send(textArr[0].join(' '));
+						res.send(textArr);
 					}
 				}
 			});
@@ -68,7 +69,7 @@ var getNextWord = function(arr, res) {
 };
 
 
-var newParagraph = function(res) {  // jshint ignore: line
+var newParagraph = function(res) { // jshint ignore: line
 	windex = 0;
 	foundPeriod = false;
 
@@ -85,6 +86,8 @@ var newParagraph = function(res) {  // jshint ignore: line
 
 
 var getText = function(res) {
+	textArr = [];
+	pindex = 0;
 
 	db.open(function(err, db) {
 		if (err) {
@@ -99,11 +102,7 @@ var getText = function(res) {
 			}
 			index = dbindex;
 
-
-
 			newParagraph(res);
-
-
 		});
 
 	});
@@ -112,5 +111,9 @@ var getText = function(res) {
 
 
 exports.ipsum = function(req, res) {
+	if (req.wordCount > 0) {
+		words = req.wordCount;
+		paras = req.paragraphCount;
+	}
 	getText(res);
 };

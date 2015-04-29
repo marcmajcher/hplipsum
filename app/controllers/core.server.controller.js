@@ -5,8 +5,10 @@ var mongoPort = 27017;
 var db = new Db('hplipsum', new Server('localhost', mongoPort));
 var index;
 
-var words = 250;
-var paras = 1;
+var defaultWords = 250;
+var defaultParas = 2;
+var words;
+var paras;
 var index;
 
 var textArr;
@@ -37,7 +39,8 @@ var getNextWord = function(arr, res) {
 				}
 
 				var w3 = docs[Math.floor(Math.random() * docs.length)].w3;
-				textArr[pindex].push(w3);
+				// textArr[pindex].push(w3);
+				textArr[pindex] += ' ' + w3;
 
 				windex++;
 
@@ -59,7 +62,6 @@ var getNextWord = function(arr, res) {
 					}
 					else {
 						db.close();
-						// res.send(textArr[0].join(' '));
 						res.send(textArr);
 					}
 				}
@@ -79,7 +81,8 @@ var newParagraph = function(res) { // jshint ignore: line
 	}, function(err, object) {
 		var seed = object.seeds[Math.floor(Math.random() * object.seeds.length)];
 
-		textArr[pindex] = seed.slice();
+		// textArr[pindex] = seed.slice();
+		textArr[pindex] = seed.join(' ');
 		getNextWord(seed, res);
 	});
 };
@@ -111,9 +114,7 @@ var getText = function(res) {
 
 
 exports.ipsum = function(req, res) {
-	if (req.wordCount > 0) {
-		words = req.wordCount;
-		paras = req.paragraphCount;
-	}
+	words = (req.wordCount > 0) ? req.wordCount : defaultWords;
+	paras = (req.paragraphCount > 0) ? req.paragraphCount : defaultParas;
 	getText(res);
 };

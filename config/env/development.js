@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-	db: 'mongodb://localhost/hplipsum-dev',
+	db: 'mongodb://localhost/hplipsum',
 	app: {
 		title: 'hplipsum - Development Environment'
 	},

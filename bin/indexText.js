@@ -65,30 +65,6 @@ var processFile = function(file) {
 		});
 
 		insertWord(words, 0);
-
-		// words.forEach(function(word, i) {
-		// 	if (i < words.length - 2 && words[i + 2] !== '') {
-		// 		index.insert({
-		// 			w1: word,
-		// 			w2: words[i + 1],
-		// 			w3: words[i + 2]
-		// 		}, {
-		// 			j: true,
-		// 			w: 1
-		// 		}, function(err, item) {
-		// 			insertCount++;
-		// 		});
-		// 	}
-		// });
-
-		/* When we're all done, close the mongo connection and exit */
-		// fileCount--;
-
-		// if (fileCount === 0) {
-		// //	db.close();
-		// 	console.log('insert count: ' + insertCount);
-		// 	console.log('Text files successfully indexed.');
-		// }
 	});
 };
 

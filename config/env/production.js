@@ -1,7 +1,8 @@
 'use strict';
 
 module.exports = {
-	db: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/hplipsum',
+	db: 'hplipsumapp:bl4sph3my@ds031902.mongolab.com:31902/heroku_app36383571',
+	// db: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/hplipsum',
 	assets: {
 		lib: {
 			css: [

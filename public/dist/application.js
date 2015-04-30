@@ -63,37 +63,30 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
 ]);
 'use strict';
 
-angular.module('core').controller('HeaderController', ['$scope', 'Authentication', 'Menus',
-	function($scope, Authentication, Menus) {
-		$scope.authentication = Authentication;
-		$scope.isCollapsed = false;
-		$scope.menu = Menus.getMenu('topbar');
-
-		$scope.toggleCollapsibleMenu = function() {
-			$scope.isCollapsed = !$scope.isCollapsed;
-		};
-
-		// Collapsing the menu after navigation
-		$scope.$on('$stateChangeSuccess', function() {
-			$scope.isCollapsed = false;
-		});
-	}
-]);
-'use strict';
-
 
 angular.module('core').controller('HomeController', ['$scope', '$http',
 	function($scope, $http) {
 
-		$scope.hplipsum = ['Generated text will go here.'];
+		var loadText = ['Dancing madly around Azathoth...', 'Frenzied bodies heaving savagely...',
+						'Removing Nyarlathotep\'s masks...', 'Chanting the Unspeakable Oath...',
+						'Transporting brain cylinders to Yuggoth...', 'Penetrating the stygian depths...'];
+		$scope.hplipsum = [];
 		$scope.wordCount = 100;
 		$scope.paraCount = 2;
 
+		var setLoadText = function() {
+			$scope.hplipsum = [ loadText[Math.floor(Math.random()*loadText.length)] ];
+		};
+
 		$scope.generate = function() {
-			$http.get('/ipsum/'+$scope.wordCount+'/'+$scope.paraCount).success(function(data) {
+			$http.get('/ipsum/' + $scope.wordCount + '/' + $scope.paraCount).success(function(data) {
 				$scope.hplipsum = data;
 			});
 		};
+
+		setLoadText();
+		$scope.generate();
+		
 	}
 ]);
 'use strict';

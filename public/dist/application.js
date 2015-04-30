@@ -96,10 +96,9 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 		$scope.paraCount = 2;
 
 		$scope.generate = function() {
-			// $http.get('/ipsum/'+$scope.wordCount+'/'+$scope.paraCount).success(function(data) {
-			// 	$scope.hplipsum = data;
-			// });
-			$scope.hplipsum = ['blah blah blah', 'boo boo boo'];
+			$http.get('/ipsum/'+$scope.wordCount+'/'+$scope.paraCount).success(function(data) {
+				$scope.hplipsum = data;
+			});
 		};
 	}
 ]);

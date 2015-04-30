@@ -37,7 +37,8 @@ var getNextWord = function(arr, res) {
 					throw err;
 				}
 
-				var w3 = docs[Math.floor(Math.random() * docs.length)].w3;
+				var doc = docs[Math.floor(Math.random() * docs.length)];
+				var w3 = (doc) ? doc.w3 : 'the';
 				textArr[pindex] += ' ' + w3;
 
 				windex++;

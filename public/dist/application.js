@@ -47,10 +47,6 @@ angular.element(document).ready(function() {
 ApplicationConfiguration.registerModule('core');
 'use strict';
 
-// Use Applicaion configuration module to register a new module
-ApplicationConfiguration.registerModule('users');
-'use strict';
-
 // Setting up route
 angular.module('core').config(['$stateProvider', '$urlRouterProvider',
 	function($stateProvider, $urlRouterProvider) {
@@ -86,17 +82,12 @@ angular.module('core').controller('HeaderController', ['$scope', 'Authentication
 'use strict';
 
 
-angular.module('core').controller('HomeController', ['$scope', 'Authentication', '$http',
-	function($scope, Authentication, $http) {
-		// This provides Authentication context.
-		$scope.authentication = Authentication;
+angular.module('core').controller('HomeController', ['$scope', '$http',
+	function($scope, $http) {
 
 		$scope.hplipsum = ['Generated text will go here.'];
 		$scope.wordCount = 100;
 		$scope.paraCount = 2;
-
-console.log('SCOPE');
-console.log($scope);
 
 		$scope.generate = function() {
 			$http.get('/ipsum/'+$scope.wordCount+'/'+$scope.paraCount).success(function(data) {
@@ -269,19 +260,5 @@ angular.module('core').service('Menus', [
 
 		//Adding the topbar menu
 		this.addMenu('topbar');
-	}
-]);
-'use strict';
-
-// Authentication service for user variables
-angular.module('users').factory('Authentication', [
-	function() {
-		var _this = this;
-
-		_this._data = {
-			user: window.user
-		};
-
-		return _this._data;
 	}
 ]);

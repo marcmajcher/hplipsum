@@ -1,14 +1,6 @@
 'use strict';
-var config = require('../../config/config');
 var mongoose = require('mongoose');
-
-var db = mongoose.connect(config.db, function (err) {
-	if (err) {
-		console.error('Could not connect to MongoDB in core.server.controller.js!');
-		console.log(err);
-	}
-});
-var index = db.connection.collection('index');
+var index = mongoose.connection.collection('index');
 
 var defaultWords = 250;
 var defaultParas = 2;

@@ -2,6 +2,9 @@
 var mongoose = require('mongoose');
 var index = mongoose.connection.collection('index');
 
+var maxWords = 750;
+var maxParas = 12;
+
 var defaultWords = 250;
 var defaultParas = 2;
 var words;
@@ -16,20 +19,20 @@ var foundPeriod;
 /**
  * Module dependencies.
  */
-exports.index = function (req, res) {
+exports.index = function(req, res) {
 	res.render('index', {
 		request: req
 	});
 };
 
 
-var getNextWord = function (arr, res) {
+var getNextWord = function(arr, res) {
 	index.find({
 			w1: arr[0],
 			w2: arr[1]
 		},
-		function (err, object) {
-			object.toArray(function (err, docs) {
+		function(err, object) {
+			object.toArray(function(err, docs) {
 				if (err) {
 					throw err;
 				}
@@ -65,14 +68,14 @@ var getNextWord = function (arr, res) {
 };
 
 
-var newParagraph = function (res) { // jshint ignore: line
+var newParagraph = function(res) { // jshint ignore: line
 	windex = 0;
 	foundPeriod = false;
 
 	/* Choose a random paragraph seed */
 	index.findOne({
 		_id: '_seeds'
-	}, function (err, object) {
+	}, function(err, object) {
 		var seed = object.seeds[Math.floor(Math.random() * object.seeds.length)];
 		textArr[pindex] = seed.join(' ');
 		getNextWord(seed, res);
@@ -80,15 +83,15 @@ var newParagraph = function (res) { // jshint ignore: line
 };
 
 
-var getText = function (res) {
+var getText = function(res) {
 	textArr = [];
 	pindex = 0;
 	newParagraph(res);
 };
 
 
-exports.ipsum = function (req, res) {
-	words = (req.wordCount > 0) ? req.wordCount : defaultWords;
-	paras = (req.paragraphCount > 0) ? req.paragraphCount : defaultParas;
+exports.ipsum = function(req, res) {
+	words = Math.min((req.wordCount > 0) ? req.wordCount : defaultWords, maxWords);
+	paras = Math.min((req.paragraphCount > 0) ? req.paragraphCount : defaultParas, maxParas);
 	getText(res);
 };

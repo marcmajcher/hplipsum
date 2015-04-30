@@ -7,7 +7,7 @@ module.exports = function(grunt) {
 		serverJS: ['gruntfile.js', 'server.js', 'config/**/*.js', 'app/**/*.js'],
 		clientViews: ['public/modules/**/views/**/*.html'],
 		clientJS: ['public/js/*.js', 'public/modules/**/*.js'],
-		clientCSS: ['public/modules/**/*.css'],
+		clientCSS: ['public/modules/**/*.css', 'public/css/*.css'],
 		mochaTests: ['app/tests/**/*.js']
 	};
 
@@ -47,6 +47,10 @@ module.exports = function(grunt) {
 				options: {
 					livereload: true
 				}
+			},
+			sass: {
+				files: 'style/{,*/}*.{scss,sass}',
+				tasks: ['sass:dev']
 			}
 		},
 		jshint: {
@@ -144,6 +148,18 @@ module.exports = function(grunt) {
 			index: {
 				args: ['bin/indexText.js']
 			}
+		},
+		sass: {
+			dev: {
+				options: {
+					style: 'expanded',
+					compass: false
+				},
+				files: {
+					'public/css/style.css': 'style/{,*/}*.{scss,sass}',
+					// 'public/css/bootstrap.css': 'public/lib/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss'
+				}
+			}
 		}
 	});
 
@@ -165,7 +181,7 @@ module.exports = function(grunt) {
 	});
 
 	// Default task(s).
-	grunt.registerTask('default', ['lint', 'concurrent:default']);
+	grunt.registerTask('default', ['lint', 'sass:dev', 'concurrent:default']);
 
 	// Debug task.
 	grunt.registerTask('debug', ['lint', 'concurrent:debug']);
@@ -184,5 +200,6 @@ module.exports = function(grunt) {
 
 	// Index source text
 	grunt.registerTask('index', ['run:index']);
+
 
 };

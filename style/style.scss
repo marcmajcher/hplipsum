@@ -1,0 +1,109 @@
+@font-face {
+    font-family: 'hplhs_oldstyle';
+    src: url('/fonts/oldstyhplhs-webfont.eot');
+    src: url('/fonts/oldstyhplhs-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/oldstyhplhs-webfont.woff2') format('woff2'),
+         url('/fonts/oldstyhplhs-webfont.woff') format('woff'),
+         url('/fonts/oldstyhplhs-webfont.ttf') format('truetype'),
+         url('/fonts/oldstyhplhs-webfont.svg#oldstyle_hplhsregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'hplhs_oldstyle_sc';
+    src: url('/fonts/oldstyschplhs-webfont.eot');
+    src: url('/fonts/oldstyschplhs-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/oldstyschplhs-webfont.woff2') format('woff2'),
+         url('/fonts/oldstyschplhs-webfont.woff') format('woff'),
+         url('/fonts/oldstyschplhs-webfont.ttf') format('truetype'),
+         url('/fonts/oldstyschplhs-webfont.svg#oldstyle_hplhssc') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+$font-stack: 'hplhs_oldstyle', 'Libre Baskerville', serif;
+$font-stack-sc: 'hplhs_oldstyle_sc', 'Libre Baskerville', serif;
+
+body {
+	background: transparent url(/img/paperbg1.png) 0 0 repeat;
+	font-family: $font-stack;
+	font-size: 16px;
+	letter-spacing: 1.2px;
+	color: #cccccc;
+}
+
+header {
+	padding: 45px;
+	text-align: center;
+	opacity: 0.6;
+
+	h1 {
+		color: white;
+		font-size: 72px;
+		font-weight: bold;
+		letter-spacing: 16px;
+	}
+
+	h2 {
+		font-size: 24px;
+		font-family: $font-stack-sc;
+		text-transform: capitalize;
+		letter-spacing: 0px;
+	}
+}
+
+.content {
+	margin-top: 300px;
+}
+
+.config {
+	margin-bottom: 60px;
+
+	label {
+		font-size: 30px;
+		font-weight: bold;
+	}
+
+	input[type=text] {
+		font-size: 24px;
+		font-weight: bold;
+		color: black;
+		width: 60px;
+		padding-left: 10px;
+		padding-bottom: 3px;
+		text-align: left;
+		background: rgba(255, 255, 255, 0.4);
+	}
+
+	button {
+		background: #333;
+		font-weight: bold;
+		font-size: 18px;
+		padding: 10px;
+		font-family: $font-stack-sc;
+		letter-spacing: 1.2px;
+	}
+}
+
+.generated-text {
+	background: rgba(255, 255, 255, 0.2);
+	color: #eeeeee;
+	text-align: justify;
+
+	-webkit-box-shadow: 4px 4px 10px 0px rgba(0,0,0,0.5);
+	-moz-box-shadow: 4px 4px 10px 0px rgba(0,0,0,0.5);
+	box-shadow: 4px 4px 10px 0px rgba(0,0,0,0.5);
+
+	p {
+		margin: 40px 50px;
+	}
+}
+
+footer {
+	font-size: 12px;
+	font-color: #aaaaaa;
+	padding: 8px;
+	margin-top: 60px;
+	display: block;
+}

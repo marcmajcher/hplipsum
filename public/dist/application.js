@@ -64,12 +64,13 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
 'use strict';
 
 
-angular.module('core').controller('HomeController', ['$scope', '$http', '$interval',
+angular.module('core')
+	.controller('HomeController', ['$scope', '$http', '$interval',
 	function($scope, $http, $interval) {
 
 		var loadText = ['Dancing madly around Azathoth...', 'Frenzied bodies heaving savagely...',
-						'Removing Nyarlathotep\'s masks...', 'Chanting the Unspeakable Oath...',
-						'Transporting brain cylinders to Yuggoth...', 'Penetrating the stygian depths...'];
+					'Removing Nyarlathotep\'s masks...', 'Chanting the Unspeakable Oath...',
+					'Transporting brain cylinders to Yuggoth...', 'Penetrating the stygian depths...'];
 		var maxWords = 750;
 		var maxParas = 12;
 
@@ -112,7 +113,6 @@ angular.module('core').controller('HomeController', ['$scope', '$http', '$interv
 		};
 
 		$scope.generate();
-
 	}
 ]);
 'use strict';

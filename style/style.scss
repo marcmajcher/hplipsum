@@ -25,6 +25,7 @@
 $font-stack: 'hplhs_oldstyle', 'Libre Baskerville', serif;
 $font-stack-sc: 'hplhs_oldstyle_sc', 'Libre Baskerville', serif;
 
+
 body {
 	background: transparent url(/img/paperbg1.png) 0 0 repeat;
 	font-family: $font-stack;
@@ -50,6 +51,16 @@ header {
 		font-family: $font-stack-sc;
 		text-transform: capitalize;
 		letter-spacing: 0;
+	}
+}
+
+
+@media (max-width: 480px) { 
+	h1 {
+		font-size: 24px;
+	}
+	h2 {
+		font-size: 18px;
 	}
 }
 
@@ -105,9 +116,9 @@ header {
 	background: rgba(255, 255, 255, 0.2);
 	padding: 50px 40px 50px 50px	;
 	height: 900px;
-	-webkit-box-shadow: 4px 4px 10px 0px rgba(0,0,0,0.5);
-	-moz-box-shadow: 4px 4px 10px 0px rgba(0,0,0,0.5);
-	box-shadow: 4px 4px 10px 0px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 4px 4px 10px 0 rgba(0,0,0,0.5);
+	-moz-box-shadow: 4px 4px 10px 0 rgba(0,0,0,0.5);
+	box-shadow: 4px 4px 10px 0 rgba(0,0,0,0.5);
 }
 
 .generated-text {

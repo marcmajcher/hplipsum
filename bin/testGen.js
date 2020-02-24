@@ -1,24 +1,11 @@
-'use strict';
-var Db = require('mongodb').Db;
-var Server = require('mongodb').Server;
-var mongoPort = 27017;
+const words =  250;
+const paras =  3;
 
-var words = process.argv[2] || 250;
-var paras = process.argv[3] || 3;
-var index;
 
-var db = new Db('hplipsum', new Server('localhost', mongoPort));
-var textArr = [];
-var pindex = 0;
-var windex;
-var foundPeriod;
+function getNextWord(words) {
 
-var dumpText = function() {
-	textArr.forEach(function(arr) {
-		console.log(arr.join(' '));
-		console.log('');
-	});
-};
+}
+
 
 var getNextWord = function(arr) {
 	index.find({

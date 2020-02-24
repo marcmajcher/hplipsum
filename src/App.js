@@ -1,37 +1,46 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.scss';
+import TextGenerator from './TextGenerator';
 
-function App() {
+export default function App() {
+  const chainFile = 'chain.json';
+  const [chain, setChain] = useState({});
+
+  useEffect(() => {
+    fetch(chainFile)
+      .then(res => res.json())
+      .then(json => setChain(json));
+  }, []);
+
   return (
     <div className="App">
-      <header class="" role="navigation">
-        <h1 class="site-title">HPLipsum</h1>
+      <header className="" role="navigation">
+        <h1 className="site-title">HPLipsum</h1>
         <h2>The H.P. Lovecraft-inspired Lorem Ipsum generator</h2>
       </header>
 
-      <form class="pure-form pure-form-stacked">
+      <form className="pure-form pure-form-stacked">
         <fieldset>
-          <label for="pCount">Number of paragraphs:</label>
+          <label htmlFor="pCount">Number of paragraphs:</label>
           <input id="pCount" type="number" value="3" />
 
-          <label for="wordCount">Words per paragraph:</label>
+          <label htmlFor="wordCount">Words per paragraph:</label>
           <input id="wordCount" type="number" value="100" />
 
-          {/* loadingText */}
-
-          <button class="pure-button" type="button">
+          <button className="pure-button" type="button">
             Summon Text
           </button>
         </fieldset>
       </form>
 
-      <div class="generated-text"></div>
+      <div className="generated-text">
+        <TextGenerator chain={chain}></TextGenerator>
+      </div>
 
       <footer>
-        Created by Marc Majcher <email>&lt;majcher@gmail.com&gt;</email>
+        Created by Marc Majcher <span>&lt;majcher@gmail.com&gt;</span>
       </footer>
     </div>
   );
 }
 
-export default App;

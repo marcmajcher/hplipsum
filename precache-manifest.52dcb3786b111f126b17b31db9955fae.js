@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3138adf0197a746961d4e8f8634536c8",
+    "revision": "3a6acf26d11ca39ecff2f57b364021f2",
     "url": "/hplipsum/index.html"
   },
   {
-    "revision": "f0983afd7de46e5146ff",
+    "revision": "66084a3cb5540953e22b",
     "url": "/hplipsum/static/css/main.c8c53674.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/hplipsum/static/js/2.04054d45.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "f0983afd7de46e5146ff",
-    "url": "/hplipsum/static/js/main.cf507b3b.chunk.js"
+    "revision": "66084a3cb5540953e22b",
+    "url": "/hplipsum/static/js/main.2123fa12.chunk.js"
   },
   {
     "revision": "d7f19f27572b48dbabe1",

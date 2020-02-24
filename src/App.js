@@ -3,7 +3,6 @@ import './App.scss';
 import TextGenerator from './TextGenerator';
 
 const chainData = require('./data/chain.json');
-console.log(Object.keys(chainData));
 
 export default function App() {
   const [chain, setChain] = useState({});

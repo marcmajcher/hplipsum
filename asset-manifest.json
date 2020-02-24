@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/hplipsum/static/css/main.a6e9997e.chunk.css",
+    "main.css": "/hplipsum/static/css/main.c8c53674.chunk.css",
     "main.js": "/hplipsum/static/js/main.fb4064b1.chunk.js",
     "main.js.map": "/hplipsum/static/js/main.fb4064b1.chunk.js.map",
     "runtime-main.js": "/hplipsum/static/js/runtime-main.70da2158.js",
@@ -8,16 +8,16 @@
     "static/js/2.04054d45.chunk.js": "/hplipsum/static/js/2.04054d45.chunk.js",
     "static/js/2.04054d45.chunk.js.map": "/hplipsum/static/js/2.04054d45.chunk.js.map",
     "index.html": "/hplipsum/index.html",
-    "precache-manifest.c8abbbbe12a337529ee556dd295cefd9.js": "/hplipsum/precache-manifest.c8abbbbe12a337529ee556dd295cefd9.js",
+    "precache-manifest.514a1095be39d6b1e3cc18a58b2e42dd.js": "/hplipsum/precache-manifest.514a1095be39d6b1e3cc18a58b2e42dd.js",
     "service-worker.js": "/hplipsum/service-worker.js",
-    "static/css/main.a6e9997e.chunk.css.map": "/hplipsum/static/css/main.a6e9997e.chunk.css.map",
+    "static/css/main.c8c53674.chunk.css.map": "/hplipsum/static/css/main.c8c53674.chunk.css.map",
     "static/js/2.04054d45.chunk.js.LICENSE.txt": "/hplipsum/static/js/2.04054d45.chunk.js.LICENSE.txt",
     "static/media/App.scss": "/hplipsum/static/media/paperbg1.9207d6fc.png"
   },
   "entrypoints": [
     "static/js/runtime-main.70da2158.js",
     "static/js/2.04054d45.chunk.js",
-    "static/css/main.a6e9997e.chunk.css",
+    "static/css/main.c8c53674.chunk.css",
     "static/js/main.fb4064b1.chunk.js"
   ]
 }

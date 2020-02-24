@@ -5,6 +5,8 @@ import TextGenerator from './TextGenerator';
 export default function App() {
   const chainFile = 'chain.json';
   const [chain, setChain] = useState({});
+  const [pcount, setPcount] = useState(3);
+  const [wcount, setWcount] = useState(100);
 
   useEffect(() => {
     fetch(chainFile)
@@ -14,27 +16,45 @@ export default function App() {
 
   return (
     <div className="App">
-      <header className="" role="navigation">
-        <h1 className="site-title">HPLipsum</h1>
-        <h2>The H.P. Lovecraft-inspired Lorem Ipsum generator</h2>
+      <header className="pure-g" role="navigation">
+        <div className="pure-u-7-12 title">
+          <h1 className="site-title">HPLipsum</h1>
+          <h2>The H.P. Lovecraft-inspired Lorem Ipsum generator</h2>
+        </div>
+        <div className="pure-u-1-12"></div>
+        <div className="pure-u-4-12">
+          <form className="pure-form pure-form-stacked">
+            <fieldset>
+              <label htmlFor="pCount">Number of paragraphs:</label>
+              <input
+                id="pCount"
+                type="number"
+                value={pcount}
+                onChange={e => setPcount(e.target.value)}
+              />
+
+              <label htmlFor="wordCount">Words per paragraph:</label>
+              <input
+                id="wordCount"
+                type="number"
+                value={wcount}
+                onChange={e => setWcount(e.target.value)}
+              />
+
+              <button className="pure-button" type="button">
+                Summon Text
+              </button>
+            </fieldset>
+          </form>
+        </div>
       </header>
 
-      <form className="pure-form pure-form-stacked">
-        <fieldset>
-          <label htmlFor="pCount">Number of paragraphs:</label>
-          <input id="pCount" type="number" value="3" />
-
-          <label htmlFor="wordCount">Words per paragraph:</label>
-          <input id="wordCount" type="number" value="100" />
-
-          <button className="pure-button" type="button">
-            Summon Text
-          </button>
-        </fieldset>
-      </form>
-
       <div className="generated-text">
-        <TextGenerator chain={chain}></TextGenerator>
+        <TextGenerator
+          chain={chain}
+          pcount={pcount}
+          wcount={wcount}
+        ></TextGenerator>
       </div>
 
       <footer>
@@ -43,4 +63,3 @@ export default function App() {
     </div>
   );
 }
-

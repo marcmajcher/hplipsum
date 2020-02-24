@@ -31,6 +31,6 @@ function getNextWord(chain, w1, w2) {
 }
 
 export default function TextGenerator(props) {
-  const paragraphs = generateText(props.chain, 3, 100);
+  const paragraphs = generateText(props.chain, props.pcount, props.wcount);
   return paragraphs.map((para, i) => <p key={i}>{para}</p>);
 }

@@ -1,24 +1,24 @@
 @font-face {
   font-family: 'hplhs_oldstyle';
-  src: url('/fonts/oldstyhplhs-webfont.eot');
-  src: url('/fonts/oldstyhplhs-webfont.eot?#iefix') format('embedded-opentype'),
-    url('/fonts/oldstyhplhs-webfont.woff2') format('woff2'),
-    url('/fonts/oldstyhplhs-webfont.woff') format('woff'),
-    url('/fonts/oldstyhplhs-webfont.ttf') format('truetype'),
-    url('/fonts/oldstyhplhs-webfont.svg#oldstyle_hplhsregular') format('svg');
+  src: url('./fonts/oldstyhplhs-webfont.eot');
+  src: url('./fonts/oldstyhplhs-webfont.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/oldstyhplhs-webfont.woff2') format('woff2'),
+    url('./fonts/oldstyhplhs-webfont.woff') format('woff'),
+    url('./fonts/oldstyhplhs-webfont.ttf') format('truetype'),
+    url('./fonts/oldstyhplhs-webfont.svg#oldstyle_hplhsregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'hplhs_oldstyle_sc';
-  src: url('/fonts/oldstyschplhs-webfont.eot');
-  src: url('/fonts/oldstyschplhs-webfont.eot?#iefix')
+  src: url('./fonts/oldstyschplhs-webfont.eot');
+  src: url('./fonts/oldstyschplhs-webfont.eot?#iefix')
       format('embedded-opentype'),
-    url('/fonts/oldstyschplhs-webfont.woff2') format('woff2'),
-    url('/fonts/oldstyschplhs-webfont.woff') format('woff'),
-    url('/fonts/oldstyschplhs-webfont.ttf') format('truetype'),
-    url('/fonts/oldstyschplhs-webfont.svg#oldstyle_hplhssc') format('svg');
+    url('./fonts/oldstyschplhs-webfont.woff2') format('woff2'),
+    url('./fonts/oldstyschplhs-webfont.woff') format('woff'),
+    url('./fonts/oldstyschplhs-webfont.ttf') format('truetype'),
+    url('./fonts/oldstyschplhs-webfont.svg#oldstyle_hplhssc') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -37,7 +37,7 @@ textarea,
 }
 
 body {
-  background: transparent url(img/paperbg1.png) 0 0 repeat;
+  background: transparent url('./img/paperbg1.png') 0 0 repeat;
 }
 
 header {

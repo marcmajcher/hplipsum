@@ -46,21 +46,22 @@ header {
 
   .title {
     text-align: right;
-    h1 {
-      color: white;
-      font-size: 4em;
-      font-weight: bold;
-      letter-spacing: 0.2em;
-      margin-bottom: 0;
-    }
-
-    h2 {
-      font-family: $font-stack-sc;
-      font-size: 1.5em;
-      letter-spacing: 1px;
-      text-transform: capitalize;
-    }
   }
+}
+
+h1 {
+  color: white;
+  font-size: 4em;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  margin-bottom: 0;
+}
+
+h2 {
+  font-family: $font-stack-sc;
+  font-size: 1.5em;
+  letter-spacing: 1px;
+  text-transform: capitalize;
 }
 
 fieldset {
@@ -104,4 +105,26 @@ footer {
   padding: 8px;
   margin-top: 60px;
   display: block;
+}
+
+@media only screen and (max-width: 768px) {
+  h1 {
+    font-size: 12vw;
+    text-align: center;
+  }
+  h2 {
+    font-size: 6vw;
+    text-align: center;
+  }
+  fieldset,
+  input[type='number'].number-input {
+    // extra class for specificity
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .generated-text {
+    padding: 1em;
+  }
 }

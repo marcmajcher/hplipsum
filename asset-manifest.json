@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/hplipsum/static/css/main.c8c53674.chunk.css",
-    "main.js": "/hplipsum/static/js/main.2123fa12.chunk.js",
-    "main.js.map": "/hplipsum/static/js/main.2123fa12.chunk.js.map",
+    "main.js": "/hplipsum/static/js/main.37917aee.chunk.js",
+    "main.js.map": "/hplipsum/static/js/main.37917aee.chunk.js.map",
     "runtime-main.js": "/hplipsum/static/js/runtime-main.70da2158.js",
     "runtime-main.js.map": "/hplipsum/static/js/runtime-main.70da2158.js.map",
     "static/js/2.04054d45.chunk.js": "/hplipsum/static/js/2.04054d45.chunk.js",
     "static/js/2.04054d45.chunk.js.map": "/hplipsum/static/js/2.04054d45.chunk.js.map",
     "index.html": "/hplipsum/index.html",
-    "precache-manifest.52dcb3786b111f126b17b31db9955fae.js": "/hplipsum/precache-manifest.52dcb3786b111f126b17b31db9955fae.js",
+    "precache-manifest.f080b8ad43a3ca7dde6c3afd60d34e8a.js": "/hplipsum/precache-manifest.f080b8ad43a3ca7dde6c3afd60d34e8a.js",
     "service-worker.js": "/hplipsum/service-worker.js",
     "static/css/main.c8c53674.chunk.css.map": "/hplipsum/static/css/main.c8c53674.chunk.css.map",
     "static/js/2.04054d45.chunk.js.LICENSE.txt": "/hplipsum/static/js/2.04054d45.chunk.js.LICENSE.txt",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.70da2158.js",
     "static/js/2.04054d45.chunk.js",
     "static/css/main.c8c53674.chunk.css",
-    "static/js/main.2123fa12.chunk.js"
+    "static/js/main.37917aee.chunk.js"
   ]
 }

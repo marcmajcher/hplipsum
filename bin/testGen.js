@@ -1,82 +1,40 @@
-const words =  250;
-const paras =  3;
+const fs = require('fs');
+const chainFile = './public/chain.json';
+const paragraphCount = 3;
+const wordCount = 100;
 
+fs.readFile(chainFile, 'utf8', (err, data) => {
+  const text = generateText(JSON.parse(data), paragraphCount, wordCount);
+  console.log(text);
+});
 
-function getNextWord(words) {
-
+function select(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+function generateText(chain, numParas, numWords) {
+  let paragraphs = [];
+  for (let i = 0; i < numParas; i++) {
+    paragraphs.push(generateParagraph(chain, numWords));
+  }
+  return paragraphs.join('\n\n');
 }
 
+function generateParagraph(chain, numWords) {
+  let text = select(chain._seeds);
+  let [w1, w2] = text;
+  for (
+    let i = 0;
+    i < numWords || !(text[text.length - 1].endsWith('.'));
+    i++
+  ) {
+    const w3 = getNextWord(chain, w1, w2);
+    text.push(w3);
+    [w1, w2] = [w2, w3];
+  }
 
-var getNextWord = function(arr) {
-	index.find({
-			w1: arr[0],
-			w2: arr[1]
-		},
-		function(err, object) {
-			object.toArray(function(err, docs) {
-				if (err) {
-					throw err;
-				}
+  return text.join(' ');
+}
 
-				var w3 = docs[Math.floor(Math.random() * docs.length)].w3;
-				textArr[pindex].push(w3);
-
-				windex++;
-
-				if (windex >= words) {
-					if (w3.match(/\.$/)) {
-						foundPeriod = true;
-					}
-				}
-
-				if (windex < words || !foundPeriod) {
-					arr.push(w3);
-					arr.shift();
-					getNextWord(arr);
-				}
-				else {
-					pindex++;
-					if (pindex < paras) {
-						newParagraph();
-					}
-					else {
-						db.close();
-						dumpText();
-					}
-				}
-			});
-
-		});
-};
-
-var newParagraph = function() {
-	windex = 0;
-	foundPeriod = false;
-
-	/* Choose a random paragraph seed */
-	index.findOne({
-		_id: '_seeds'
-	}, function(err, object) {
-		var seed = object.seeds[Math.floor(Math.random() * object.seeds.length)];
-
-		textArr[pindex] = seed.slice();
-		getNextWord(seed);
-	});
-};
-
-db.open(function(err, db) {
-	if (err) {
-		console.log('ERROR: Can\'t connect to mongoDB on port ' + mongoPort);
-		throw (err);
-	}
-
-	db.collection('index', function(err, dbindex) {
-		if (err) {
-			console.warn('ERROR: Can\'t create collection');
-			throw (err);
-		}
-		index = dbindex;
-
-		newParagraph();
-	});
-});
+function getNextWord(chain, w1, w2) {
+  return select(chain[w1][w2]);
+}

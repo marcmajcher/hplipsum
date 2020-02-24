@@ -2,16 +2,16 @@ import React, { useEffect, useState } from 'react';
 import './App.scss';
 import TextGenerator from './TextGenerator';
 
+const chainData = require('./data/chain.json');
+console.log(Object.keys(chainData));
+
 export default function App() {
-  const chainFile = 'chain.json';
   const [chain, setChain] = useState({});
   const [pcount, setPcount] = useState(3);
   const [wcount, setWcount] = useState(100);
 
   useEffect(() => {
-    fetch(chainFile)
-      .then(res => res.json())
-      .then(json => setChain(json));
+    setChain(chainData);
   }, []);
 
   return (

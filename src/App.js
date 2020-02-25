@@ -6,12 +6,12 @@ const chainData = require('./data/chain.json');
 
 export default function App() {
   const [chain, setChain] = useState({});
-  const [pcount, setPcount] = useState(3);
+  const [pcount, setPcount] = useState(5);
   const [wcount, setWcount] = useState(100);
   const [time, setTime] = useState(Date.now());
 
   useEffect(() => {
-    console.log('fthagn!');
+    console.log('Fthagn.');
     setChain(chainData);
   }, []);
 

@@ -1,5 +1,4 @@
-console.log('exporting Markov');
-module.exports = {
+export default {
   generateText(args) {
     const { chain, pcount, wcount } = args;
     if (chain._seeds) {

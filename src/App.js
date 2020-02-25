@@ -11,8 +11,10 @@ export default function App() {
   const [time, setTime] = useState(Date.now());
 
   useEffect(() => {
+    console.log('fthagn.');
     setChain(chainData);
   }, []);
+
 
   return (
     <div className="App">

@@ -12,7 +12,7 @@ module.exports = {
     return ['Loading...'];
   },
   generateParagraph(chain, numWords) {
-    let text = this.select(chain._seeds).slice(0);
+    const text = this.select(chain._seeds).slice(0);
     let [w1, w2] = text;
     for (
       let i = 0;
@@ -21,8 +21,14 @@ module.exports = {
       i++
     ) {
       const w3 = this.getNextWord(chain, w1, w2);
-      text.push(w3);
-      [w1, w2] = [w2, w3];
+      if (typeof w3 === 'string') {
+        text.push(w3);
+        [w1, w2] = [w2, w3];
+      } else {
+        text.push(w3[0]);
+        text.push(w3[1]);
+        [w1, w2] = w3;
+      }
     }
     return text.join(' ');
   },

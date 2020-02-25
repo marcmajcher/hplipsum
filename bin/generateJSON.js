@@ -1,20 +1,18 @@
 const fs = require('fs');
-const textDir = './data';
-const chainFile = './chain.json';
+const textDir = './text';
+const chainFile = './src/data/chain.json';
 const chain = {
   _seeds: [],
 };
 
-const files = fs.readdirSync(textDir)
+const files = fs.readdirSync(textDir);
 
-for (let i=0; i<files.length; i++) {
-  const filePath = `${textDir}/${files[i]}`;
-  const data = fs.readFileSync(filePath, 'utf8')
-  const words = data.split(/\s+/);
+for (let i = 0; i < files.length; i++) {
+  const words = fs.readFileSync(`${textDir}/${files[i]}`, 'utf8').split(/\s+/);
   chain._seeds.push([words[0], words[1]]);
   indexWords(words);
 }
-fs.writeFile(chainFile, JSON.stringify(chain), () => console.log('done.'))
+fs.writeFile(chainFile, JSON.stringify(chain), () => console.log('done.'));
 
 function indexWords(words) {
   for (let i = 0; i < words.length - 2; i++) {
@@ -25,6 +23,6 @@ function indexWords(words) {
     if (!(w2 in chain[w1])) {
       chain[w1][w2] = [];
     }
-    chain[w1][w2].push(w3)
+    chain[w1][w2].push(w3);
   }
 }

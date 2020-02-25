@@ -1,14 +1,11 @@
 import React from 'react';
 
 function select(arr) {
-  if (arr === undefined) {
-    console.log('ARRRRRGH UNDEF', arr);
-  }
-  return arr[Math.floor(Math.random() * arr.length)];
+  return arr ? arr[Math.floor(Math.random() * arr.length)] : '.';
 }
 
 function generateText(args) {
-  const {chain, pcount, wcount} = args;
+  const { chain, pcount, wcount } = args;
   if (chain._seeds) {
     let paragraphs = [];
     for (let i = 0; i < pcount; i++) {
@@ -29,21 +26,8 @@ function generateParagraph(chain, numWords) {
     i++
   ) {
     const w3 = getNextWord(chain, w1, w2);
-    if (typeof w3 !== 'string') {
-      break;
-    }
     text.push(w3);
     [w1, w2] = [w2, w3];
-    if (typeof text[text.length - 1] !== 'string') {
-      console.error('WATTTTTTTTTTTTTT');
-    }
-    console.log('==> ', text[text.length - 1]);
-    console.log(
-      'I',
-      i,
-      'DOT:',
-      text[text.length - 1][text[text.length - 1].length - 1] !== '.'
-    );
   }
 
   return text.join(' ');

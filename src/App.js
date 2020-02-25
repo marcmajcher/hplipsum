@@ -34,7 +34,7 @@ export default function App() {
                 onChange={e => setPcount(e.target.value)}
               />
 
-              <label htmlFor="wordCount">Words per paragraph:</label>
+              <label htmlFor="wordCount">Min. words per paragraph:</label>
               <input
                 className="number-input"
                 min="1"

@@ -32,8 +32,8 @@ input,
 select,
 textarea,
 .pure-g [class*='pure-u'] {
-  font-family: $font-stack;
   color: #cccccc;
+  font-family: $font-stack;
 }
 
 body {
@@ -69,21 +69,22 @@ fieldset {
 }
 
 label {
-  letter-spacing: 1px;
   font-size: 1.1em;
+  letter-spacing: 1px;
 }
 
 input[type='number'] {
-  font-weight: bold;
-  color: black;
   background: rgba(255, 255, 255, 0.8);
+  color: black;
+  font-weight: bold;
 }
 
 button.pure-button {
-  font-weight: bold;
-  font-size: 1.2em;
   font-family: $font-stack-sc;
+  font-size: 1.2em;
+  font-weight: bold;
   letter-spacing: 1.1px;
+  margin-top: .25em;
 }
 button.pure-button:hover {
   background-color: #aaaaaa;
@@ -94,7 +95,7 @@ button.pure-button:hover {
   color: #eeeeee;
   font-size: 1.2em;
   margin-bottom: 1em;
-  padding: 2em 3em;
+  padding: 2em 12%;
   text-align: justify;
 
   -webkit-box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.5);
@@ -103,11 +104,11 @@ button.pure-button:hover {
 }
 
 footer {
-  font-size: 1em;
-  color: #cccccc;
-  padding: 8px;
-  margin-top: 60px;
   display: block;
+  color: #cccccc;
+  font-size: 1em;
+  margin-top: 60px;
+  padding: 8px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -122,11 +123,13 @@ footer {
   fieldset,
   input[type='number'].number-input {
     // extra class for specificity
-    text-align: center;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
   }
-
+  input[type='number'].number-input {
+    width: 10em;
+  }
   .generated-text {
     padding: 1em;
   }

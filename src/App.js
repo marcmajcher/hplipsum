@@ -11,7 +11,7 @@ export default function App() {
   const [time, setTime] = useState(Date.now());
 
   useEffect(() => {
-    console.log('fthagn.');
+    console.log('fthagn!');
     setChain(chainData);
   }, []);
 

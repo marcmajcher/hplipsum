@@ -21,7 +21,7 @@ export default function App() {
           <h2>The H.P. Lovecraft-inspired Lorem Ipsum generator</h2>
         </div>
         <div className="pure-u-1-12"></div>
-        <div className="pure-u-4-12 pure-u-1-1" >
+        <div className="pure-u-md-1-3 pure-u-1-1" >
           <form className="pure-form pure-form-stacked">
             <fieldset>
               <label htmlFor="pCount">Number of paragraphs:</label>

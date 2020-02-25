@@ -6,11 +6,13 @@ function select(arr) {
   }
   return arr[Math.floor(Math.random() * arr.length)];
 }
-function generateText(chain, numParas, numWords) {
+
+function generateText(args) {
+  const {chain, pcount, wcount} = args;
   if (chain._seeds) {
     let paragraphs = [];
-    for (let i = 0; i < numParas; i++) {
-      paragraphs.push(generateParagraph(chain, numWords));
+    for (let i = 0; i < pcount; i++) {
+      paragraphs.push(generateParagraph(chain, wcount));
     }
     return paragraphs;
   }
@@ -27,7 +29,7 @@ function generateParagraph(chain, numWords) {
     i++
   ) {
     const w3 = getNextWord(chain, w1, w2);
-    if (typeof(w3) !== 'string') {
+    if (typeof w3 !== 'string') {
       break;
     }
     text.push(w3);
@@ -35,8 +37,13 @@ function generateParagraph(chain, numWords) {
     if (typeof text[text.length - 1] !== 'string') {
       console.error('WATTTTTTTTTTTTTT');
     }
-    console.log("==> ",text[text.length - 1])
-    console.log("I",i, "DOT:",text[text.length - 1][text[text.length - 1].length - 1] !== '.')
+    console.log('==> ', text[text.length - 1]);
+    console.log(
+      'I',
+      i,
+      'DOT:',
+      text[text.length - 1][text[text.length - 1].length - 1] !== '.'
+    );
   }
 
   return text.join(' ');
@@ -50,6 +57,5 @@ function getNextWord(chain, w1, w2) {
 }
 
 export default function TextGenerator(props) {
-  const paragraphs = generateText(props.chain, props.pcount, props.wcount);
-  return paragraphs.map((para, i) => <p key={i}>{para}</p>);
+  return generateText(props).map((p, i) => <p key={i}>{p}</p>);
 }

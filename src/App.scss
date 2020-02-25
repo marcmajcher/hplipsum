@@ -42,7 +42,7 @@ body {
 
 header {
   background-color: rgba(255, 255, 255, 0.1);
-  padding: 1em 0 2em 0;
+  padding: 1em 0;
 
   .title {
     text-align: right;
@@ -54,7 +54,7 @@ h1 {
   font-size: 4em;
   font-weight: bold;
   letter-spacing: 0.2em;
-  margin-bottom: 0;
+  margin: 0;
 }
 
 h2 {
@@ -85,13 +85,16 @@ button.pure-button {
   font-family: $font-stack-sc;
   letter-spacing: 1.1px;
 }
+button.pure-button:hover {
+  background-color: #aaaaaa;
+}
 
 .generated-text {
   background: rgba(255, 255, 255, 0.2);
   color: #eeeeee;
   font-size: 1.2em;
   margin-bottom: 1em;
-  padding: 3em;
+  padding: 2em 3em;
   text-align: justify;
 
   -webkit-box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.5);

@@ -1,4 +1,5 @@
-const Markov = {
+console.log('exporting Markov');
+module.exports = {
   generateText(args) {
     const { chain, pcount, wcount } = args;
     if (chain._seeds) {
@@ -52,5 +53,3 @@ const Markov = {
     }
   },
 };
-
-module.exports = Markov;

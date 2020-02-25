@@ -25,4 +25,3 @@ The generator draws from the following texts, which are unaltered save the subst
 * The Temple
 * The Thing on the Doorstep
 * The Whisperer in Darkness
-

@@ -15,7 +15,6 @@ export default function App() {
     setChain(chainData);
   }, []);
 
-
   return (
     <div className="App">
       <header className="pure-g" role="navigation">

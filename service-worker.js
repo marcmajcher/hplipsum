@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/hplipsum/precache-manifest.a61746f6df7e6a712f6ecad04178909d.js"
+  "/hplipsum/precache-manifest.5f297849010aa6a95caa412d42543a4b.js"
 );
 
 self.addEventListener('message', (event) => {

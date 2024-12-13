@@ -67,7 +67,7 @@ export default function App() {
       </div>
 
       <footer>
-        Created by Marc Majcher <span>&lt;majcher@gmail.com&gt;</span>
+        Created by <a href="https://majcher.com/">Marc Majcher</a>n <span>&lt;majcher@gmail.com&gt;</span>
       </footer>
     </div>
   );
